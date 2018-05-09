@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import BookmarkItems from './bookmark_items'
 
 class BookmarkList extends Component {
   constructor(props) {
@@ -8,12 +9,14 @@ class BookmarkList extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+
   handleChange(e) {
     this.setState({text: e.target.value})
   }
 
   handleSubmit(e) {
     e.preventDefault();
+
     if (!this.state.text.length) {
       return;
     }
@@ -25,6 +28,7 @@ class BookmarkList extends Component {
       items: prevState.items.concat(newItem),
       text: ''
     }));
+
     console.log(this.state.text);
   }
 
@@ -41,6 +45,9 @@ class BookmarkList extends Component {
             </input>
             <button type="submit">Add</button>
           </form>
+        </div>
+        <div>
+          <BookmarkItems entries={this.state.items} />
         </div>
       </div>
     );
