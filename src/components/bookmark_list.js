@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import BookmarkItems from './bookmark_items'
+import BookmarkItems from './bookmark_items';
+
 
 class BookmarkList extends Component {
   constructor(props) {
