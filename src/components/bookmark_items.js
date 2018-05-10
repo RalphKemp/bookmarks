@@ -5,7 +5,19 @@ class BookmarkItems extends Component {
     return (
       <ul className="bookmark-items">
         {this.props.items.map((item, index) => {
-          return <li onClick={(e) => {this.props.removeItem(index)}} key={item.id}>{item.text}</li>
+          return (
+          <div>
+            <li key={item.id}>{item.text}</li>
+            <button
+              onClick={(e) => {this.props.removeItem(index)}}
+              className="remove-button">remove
+            </button>
+            <button
+              onClick={(e) => {this.props.editItem(index)}}
+              className="edit-button">edit
+            </button>
+          </div>
+          )
         })}
       </ul>
     );

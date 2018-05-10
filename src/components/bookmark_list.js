@@ -9,6 +9,7 @@ class BookmarkList extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.editItem = this.editItem.bind(this);
   }
 
 
@@ -40,6 +41,9 @@ class BookmarkList extends Component {
     this.setState({ items: newItems })
   }
 
+  editItem(index) {
+    const items = this.state.items;
+  }
 
   render() {
     return (
@@ -55,8 +59,10 @@ class BookmarkList extends Component {
           </form>
         </div>
         <div>
-          <BookmarkItems items={this.state.items}
-                        removeItem={this.removeItem}
+          <BookmarkItems
+            items={this.state.items}
+            removeItem={this.removeItem}
+            editItem={this.editItem}
           />
         </div>
       </div>
