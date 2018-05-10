@@ -8,7 +8,7 @@ class BookmarkList extends Component {
     this.state = { items: [], text: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
 
@@ -32,11 +32,12 @@ class BookmarkList extends Component {
     }));
   }
 
-  deleteItem(key) {
-    const filteredItems = this.state.items.filter(function(item) {
-      return (item.key !== key)
-    });
-    this.setState({ items: filteredItems });
+  removeItem(index) {
+    const newItems = this.state.items.filter((item, itemIndex) => {
+      return itemIndex !== index;
+    })
+
+    this.setState({ items: newItems })
   }
 
 
@@ -55,7 +56,7 @@ class BookmarkList extends Component {
         </div>
         <div>
           <BookmarkItems items={this.state.items}
-                        deleteItem={this.deleteItem}
+                        removeItem={this.removeItem}
           />
         </div>
       </div>
