@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import BookmarkItems from './bookmark_items';
 import swal from 'sweetalert';
 
-
-
 class BookmarkList extends Component {
   constructor(props) {
     super(props);
     this.state = { items: [], text: ''};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
 
@@ -31,8 +30,13 @@ class BookmarkList extends Component {
       items: prevState.items.concat(newItem),
       text: ''
     }));
+  }
 
-    console.log(this.state.text);
+  deleteItem(key) {
+    const filteredItems = this.state.items.filter(function(item) {
+      return (item.key !== key)
+    });
+    this.setState({ items: filteredItems });
   }
 
 
@@ -43,14 +47,16 @@ class BookmarkList extends Component {
           <form onSubmit={this.handleSubmit}>
             <input
               placeholder="Enter bookmark URL"
-              value={this.state.text}
-              onChange={this.handleChange} >
+              onChange={this.handleChange}
+              value={this.state.text} >
             </input>
             <button type="submit">Add</button>
           </form>
         </div>
         <div>
-          <BookmarkItems entries={this.state.items} />
+          <BookmarkItems items={this.state.items}
+                        deleteItem={this.deleteItem}
+          />
         </div>
       </div>
     );
