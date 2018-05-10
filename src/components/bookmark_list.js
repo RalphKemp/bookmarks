@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import BookmarkItems from './bookmark_items';
+import swal from 'sweetalert';
+
 
 
 class BookmarkList extends Component {
@@ -19,7 +21,7 @@ class BookmarkList extends Component {
     e.preventDefault();
 
     if (!this.state.text.length) {
-      return;
+      return swal('please enter an address');
     }
     const newItem = {
       text: this.state.text,
