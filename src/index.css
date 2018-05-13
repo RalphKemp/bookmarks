@@ -40,8 +40,9 @@ body {
 }
 
 .search-button {
-  outline: none;
-  font-size: 15px;
+  outline: none !important;
+  border: none;
+  font-size: 18px;
   color: white;
   padding: 15px 15px;
   border-radius: 15px;
@@ -51,6 +52,7 @@ body {
 
 .search-button:hover {
   opacity: 1;
+  border: none;
   background: #7979a8;
   text-decoration: none;
   color: white;
@@ -59,6 +61,7 @@ body {
 
 .remove-button {
   outline: none;
+  border: none;
   font-size: 15px;
   color: white;
   padding: 15px 15px;
@@ -69,6 +72,7 @@ body {
 
 .remove-button:hover {
   opacity: 1;
+  border: none;
   background: #e55151;
   text-decoration: none;
   color: white;
@@ -99,9 +103,10 @@ body {
   border-radius: 15px;
   background: #8585b5;
   transition: background 0.3s ease;
-  & a {
-    text-decoration: none;
-  }
+}
+
+.list-item-li a {
+  text-decoration: none !im;
 }
 
 .swiper-container {
