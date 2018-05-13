@@ -5,16 +5,23 @@ import swal from 'sweetalert';
 class BookmarkList extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], text: ''};
+    this.state = { items: [], text: '', valid: true};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.removeItem = this.removeItem.bind(this);
-    this.editItem = this.editItem.bind(this);
   }
 
 
-  handleChange(e) {
-    this.setState({text: e.target.value})
+  handleChange({target: {value}}) {
+    function CheckIsValidDomain(domain) {
+      const re = new RegExp(/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/);
+      return domain.match(re);
+    }
+
+    this.setState({
+      text: value,
+      valid: CheckIsValidDomain(value)
+    });
   }
 
   handleSubmit(e) {
@@ -22,6 +29,9 @@ class BookmarkList extends Component {
 
     if (!this.state.text.length) {
       return swal('please enter an address');
+    }
+    if (!this.state.valid) {
+      return swal('invalid');
     }
     const newItem = {
       text: this.state.text,
@@ -41,10 +51,6 @@ class BookmarkList extends Component {
     this.setState({ items: newItems })
   }
 
-  editItem(index) {
-    const items = this.state.items;
-  }
-
   render() {
     return (
       <div className="bookmark-list-main-container">
@@ -62,7 +68,6 @@ class BookmarkList extends Component {
           <BookmarkItems
             items={this.state.items}
             removeItem={this.removeItem}
-            editItem={this.editItem}
           />
         </div>
       </div>
