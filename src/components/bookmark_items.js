@@ -7,10 +7,10 @@ class BookmarkItems extends Component {
         {this.props.items.map((item, index) => {
           return (
           <div className="list-item">
-            <li key={item.id}><a href={"http://"+item.text}>{item.text}</a></li>
+            <li className="list-item-li" key={item.id}><a href={"http://"+item.text}>{item.text}</a></li>
             <button
               onClick={(e) => {this.props.removeItem(index)}}
-              className="remove-button">remove
+              className="remove-button">x
             </button>
           </div>
           )

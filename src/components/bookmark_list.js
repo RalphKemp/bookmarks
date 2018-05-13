@@ -58,7 +58,7 @@ class BookmarkList extends Component {
               value={this.state.text}
               className="search" >
             </input>
-            <button type="submit" className="search-button">Add</button>
+            <button type="submit" className="search-button">+</button>
           </form>
         </div>
         <div className="list-div">
