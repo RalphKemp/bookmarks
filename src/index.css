@@ -16,6 +16,11 @@ body {
 
 .header-div {
   margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.header-div, .list-div {
+  width: 300px;
 }
 
 .main-form input, button {
@@ -50,6 +55,16 @@ body {
 .bookmark-items {
   display: flex;
   flex-direction: column-reverse;
+  justify-content: flex-start;
+  list-style: none;
+  padding-left: 6px;
+  margin: 8px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .swiper-container {
