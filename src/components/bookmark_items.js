@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class BookmarkItems extends Component {
   render() {
@@ -8,14 +7,11 @@ class BookmarkItems extends Component {
         {this.props.items.map((item, index) => {
           return (
           <div>
-            <Link to={item.text}>
-              <li key={item.id}>{item.text}</li>
-            </Link>
+            <li key={item.id}><a href={"http://"+item.text}>{item.text}</a></li>
             <button
               onClick={(e) => {this.props.removeItem(index)}}
               className="remove-button">remove
             </button>
-
           </div>
           )
         })}

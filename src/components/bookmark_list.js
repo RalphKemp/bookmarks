@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BookmarkItems from './bookmark_items';
 import swal from 'sweetalert';
+import isValidDomain from 'is-valid-domain';
 
 class BookmarkList extends Component {
   constructor(props) {
@@ -13,14 +14,9 @@ class BookmarkList extends Component {
 
 
   handleChange({target: {value}}) {
-    function CheckIsValidDomain(domain) {
-      const re = new RegExp(/^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/);
-      return domain.match(re);
-    }
-
     this.setState({
       text: value,
-      valid: CheckIsValidDomain(value)
+      valid: isValidDomain(value)
     });
   }
 
@@ -28,10 +24,10 @@ class BookmarkList extends Component {
     e.preventDefault();
 
     if (!this.state.text.length) {
-      return swal('please enter an address');
+      return swal('Please enter an address.');
     }
     if (!this.state.valid) {
-      return swal('invalid');
+      return swal('Please enter a valid address.');
     }
     const newItem = {
       text: this.state.text,
