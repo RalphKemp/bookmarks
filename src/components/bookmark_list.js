@@ -50,17 +50,18 @@ class BookmarkList extends Component {
   render() {
     return (
       <div className="bookmark-list-main-container">
-        <div className="header">
-          <form onSubmit={this.handleSubmit}>
+        <div className="header-div">
+          <form onSubmit={this.handleSubmit} className="main-form">
             <input
               placeholder="Enter bookmark URL"
               onChange={this.handleChange}
-              value={this.state.text} >
+              value={this.state.text}
+              className="search" >
             </input>
-            <button type="submit">Add</button>
+            <button type="submit" className="search-button">Add</button>
           </form>
         </div>
-        <div>
+        <div className="list-div">
           <BookmarkItems
             items={this.state.items}
             removeItem={this.removeItem}

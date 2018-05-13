@@ -1,4 +1,70 @@
+body {
+  height: 100vh;
+  background: linear-gradient(#f5efef, #8e98b7);
+  background-size: cover;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bookmark-list-main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-div {
+  margin-top: 50px;
+}
+
+.main-form input, button {
+  margin: 8px;
+}
+
+.search {
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 15px 15px 8px;
+  font-size: 15px;
+}
+
+.search-button {
+  outline: none;
+  font-size: 15px;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 15px;
+  background: #8585b5;
+  transition: background 0.3s ease;
+}
+.search-button:hover {
+  opacity: 1;
+  background: #7979a8;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
 .bookmark-items {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.swiper-container {
+  text-align: center;
+}
+
+.swal-footer {
+  text-align: center;
+  padding: 7px;
+}
+
+.swal-text:first-child {
+  margin-top: 25px;
+}
+
+.swal-modal {
+  width: 230px;
 }
