@@ -37,7 +37,6 @@ class BookmarkList extends Component {
     });
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
 
