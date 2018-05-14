@@ -12,6 +12,10 @@ class BookmarkItems extends Component {
               onClick={(e) => {this.props.removeItem(index)}}
               className="remove-button">x
             </button>
+            <button
+              onClick={(e) => {this.props.edititem(index)}}
+              className="edit-button"><i className="fa fa-pencil"></i>
+            </button>
           </div>
           )
         })}

@@ -17,7 +17,7 @@ body {
   margin-bottom: 25px; }
 
 .header-div, .list-div {
-  width: 300px; }
+  width: 320px; }
 
 .logo {
   text-align: center;
@@ -32,11 +32,13 @@ body {
   justify-content: space-between; }
 
 .search {
+  width: 100%;
   outline: none;
   border: none;
   border-radius: 15px;
-  padding: 15px 74px 15px 8px;
-  font-size: 15px; }
+  padding: 15px 15px;
+  font-size: 15px;
+  margin-right: 10px; }
 
 .search-button {
   outline: none !important;
@@ -45,13 +47,12 @@ body {
   color: white;
   padding: 15px 15px;
   border-radius: 15px;
-  background: #8585b5; }
-  .search-button :hover {
+  background: #8585b5;
+  opacity: 0.8; }
+  .search-button:hover {
     opacity: 1;
     border: none;
-    background: #7979a8;
     text-decoration: none;
-    color: white;
     cursor: pointer; }
 
 .remove-button {
@@ -60,14 +61,29 @@ body {
   font-size: 15px;
   color: white;
   padding: 15px 15px;
+  margin-right: 6px;
   border-radius: 15px;
-  background: #f75858; }
-  .remove-button :hover {
+  background: #f75858;
+  opacity: 0.8; }
+  .remove-button:hover {
     opacity: 1;
     border: none;
-    background: #e55151;
     text-decoration: none;
-    color: white;
+    cursor: pointer; }
+
+.edit-button {
+  outline: none;
+  border: none;
+  font-size: 15px;
+  color: white;
+  padding: 15px 13px;
+  border-radius: 15px;
+  background: #5fb66b;
+  opacity: 0.8; }
+  .edit-button:hover {
+    opacity: 1;
+    border: none;
+    text-decoration: none;
     cursor: pointer; }
 
 .bookmark-items {
@@ -87,17 +103,21 @@ body {
 
 .list-item-li {
   outline: none;
+  width: 100%;
   font-size: 15px;
   padding: 15px 15px;
   color: #2f2f2f !important;
   border-radius: 15px;
-  background: #f1f1f1;
+  background: #f3f3f3;
   transition: background 0.3s ease;
   font-family: 'Lato', sans-serif;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   margin-right: 10px; }
+  .list-item-li:hover {
+    background: #ffffff;
+    cursor: pointer; }
   .list-item-li a {
     text-decoration: none !important;
     color: #2f2f2f !important; }
@@ -120,6 +140,8 @@ body {
   .header-div {
     margin-top: 80px;
     transition: background 0.3s ease; }
+  .header-div, .list-div {
+    width: 400px; }
   .logo {
-    font-size: 30px;
+    font-size: 35px;
     transition: background 0.3s ease; } }
