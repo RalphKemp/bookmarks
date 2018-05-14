@@ -69,6 +69,9 @@ class BookmarkList extends Component {
     return (
       <div className="bookmark-list-main-container">
         <div className="header-div">
+        <div className="logo">
+          <p>Bookmark Buddy</p>
+        </div>
           <form onSubmit={this.handleSubmit} className="main-form">
             <input
               placeholder="Enter bookmark URL"

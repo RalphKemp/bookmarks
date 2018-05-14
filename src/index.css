@@ -23,6 +23,14 @@ body {
   width: 300px;
 }
 
+.logo {
+  text-align: center;
+  font-size: 18px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+
+}
+
 .main-form {
   display: flex;
   justify-content: space-between;
@@ -62,7 +70,7 @@ body {
 .remove-button {
   outline: none;
   border: none;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   padding: 15px 15px;
   border-radius: 15px;
