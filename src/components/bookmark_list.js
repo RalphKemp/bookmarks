@@ -29,14 +29,12 @@ class BookmarkList extends Component {
     }
   }
 
-
   handleChange({target: {value}}) {
     this.setState({
       text: value,
       valid: isValidDomain(value)
     });
   }
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -70,6 +68,9 @@ class BookmarkList extends Component {
     return (
       <div className="bookmark-list-main-container">
         <div className="header-div">
+        <div className="logo">
+          <p>Bookmark Buddy</p>
+        </div>
           <form onSubmit={this.handleSubmit} className="main-form">
             <input
               placeholder="Enter bookmark URL"
