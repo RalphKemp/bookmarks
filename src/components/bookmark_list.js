@@ -84,6 +84,7 @@ class BookmarkList extends Component {
         <div className="list-div">
           <BookmarkItems
             items={this.state.items}
+            testing={this.state.items.isEdit}
             removeItem={this.removeItem}
           />
         </div>
