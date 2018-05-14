@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import BookmarkItems from './bookmark_items';
 import swal from 'sweetalert';
-import isValidDomain from 'is-valid-domain';
 
 class BookmarkList extends Component {
   constructor(props) {
@@ -29,8 +28,13 @@ class BookmarkList extends Component {
     }
   }
 
-
   handleChange({target: {value}}) {
+
+    function isValidDomain(domain) {
+      const regex = new RegExp(/^@(([a-zA-Z](-?[a-zA-Z0-9])*)\.)*[a-zA-Z](-?[a-zA-Z0-9])+\.[a-zA-Z]{2,}$/);
+      return domain.match(regex);
+    }
+
     this.setState({
       text: value,
       valid: isValidDomain(value)
