@@ -1,6 +1,6 @@
 body {
   height: 100vh;
-  background: linear-gradient(#f5efef, #8e98b7);
+  background: linear-gradient(#f5efef, #6978a6);
   background-size: cover;
   margin: 0;
   background-repeat: no-repeat;
@@ -37,7 +37,23 @@ body {
   justify-content: space-between;
 }
 
+.main-form-edit {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 .search {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  padding: 15px 15px;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.search-edit {
   width: 100%;
   outline: none;
   border: none;
@@ -51,6 +67,22 @@ body {
   outline: none !important;
   border: none;
   font-size: 15px;
+  color: white;
+  padding: 15px 15px;
+  border-radius: 15px;
+  background: #8585b5;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.search-button-edit {
+  outline: none !important;
+  border: none;
   color: white;
   padding: 15px 15px;
   border-radius: 15px;

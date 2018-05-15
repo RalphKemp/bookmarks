@@ -26,7 +26,6 @@ class BookmarkItem extends Component {
   }
 
 
-
   render(){
     const { isEdit, text } = this.state;
 
@@ -34,20 +33,24 @@ class BookmarkItem extends Component {
     return (
       <div>
          {isEdit ?
-          <form>
-            <input onChange={e => this.handleChange(e) }></input>
+          <form className="main-form-edit">
+            <input className="search-edit"
+                    onChange={ e => this.handleChange(e) }
+                    placeholder={item.text}>
+            </input>
             <button
+              className="search-button-edit"
               onClick={(e) => {
                 editItem(e, item.id, index, text)
                 this.toggleEditItem()
               }}
             >
-            ok
+            <i className="fa fa-check"></i>
             </button>
           </form>
         :
           <div className="list-item">
-            <li className="list-item-li" key={item.id}><a href={"http://"+item.text}>{item.text}</a></li>
+            <li className="list-item-li" key={item.id}><a href={`http://${item.text}`}>{item.text}</a></li>
             <button
               onClick={() => {this.props.removeItem(index)}}
               className="remove-button">x

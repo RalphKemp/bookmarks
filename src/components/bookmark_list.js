@@ -48,7 +48,7 @@ class BookmarkList extends Component {
   handleEdit(e, id, index, newText) {
     e.preventDefault();
     const itemToEdit = find(this.state.items, (item) => item.id === id);
-    this.removeItem(index)
+    this.state.items.splice(index, 1);
     const editedItem = {
       ...itemToEdit,
       text: newText
@@ -99,7 +99,7 @@ class BookmarkList extends Component {
           </form>
         </div>
         <div className="list-div">
-          <ul className="bookmark-items">
+          <ul key={Date.now()} className="bookmark-items">
           {
             map(this.state.items, (item, index) => {
               return  (
