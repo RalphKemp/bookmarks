@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import BookmarkItems from './bookmark_items';
+import { map, find } from 'lodash';
 import swal from 'sweetalert';
 import isValidDomain from 'is-valid-domain';
+import BookmarkItem from './bookmark_item';
 
 class BookmarkList extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class BookmarkList extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentWillMount() {
@@ -36,6 +38,29 @@ class BookmarkList extends Component {
     });
   }
 
+  removeItem(index) {
+    const newItems = this.state.items.filter((item, itemIndex) => {
+      return itemIndex !== index;
+    })
+    this.setState({ items: newItems })
+  }
+
+  handleEdit(e, id, index, newText) {
+    e.preventDefault();
+    const itemToEdit = find(this.state.items, (item) => item.id === id);
+    this.removeItem(index)
+    const editedItem = {
+      ...itemToEdit,
+      text: newText
+    }
+    this.setState({
+      items: [
+        ...this.state.items,
+        editedItem
+      ]
+    })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
 
@@ -56,14 +81,6 @@ class BookmarkList extends Component {
     }));
   }
 
-  removeItem(index) {
-    const newItems = this.state.items.filter((item, itemIndex) => {
-      return itemIndex !== index;
-    })
-    this.setState({ items: newItems })
-  }
-
-
   render() {
     return (
       <div className="bookmark-list-main-container">
@@ -82,11 +99,21 @@ class BookmarkList extends Component {
           </form>
         </div>
         <div className="list-div">
-          <BookmarkItems
-            items={this.state.items}
-            testing={this.state.items.isEdit}
-            removeItem={this.removeItem}
-          />
+          <ul className="bookmark-items">
+          {
+            map(this.state.items, (item, index) => {
+              return  (
+                <BookmarkItem
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  removeItem={this.removeItem}
+                  editItem={this.handleEdit}
+                />
+              )
+            })
+          }
+          </ul>
         </div>
       </div>
     );
