@@ -99,7 +99,7 @@ class BookmarkList extends Component {
           </form>
         </div>
         <div className="list-div">
-          <ul className="bookmark-items">
+          <ul key={Date.now()} className="bookmark-items">
           {
             map(this.state.items, (item, index) => {
               return  (
