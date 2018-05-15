@@ -35,7 +35,8 @@ class BookmarkItem extends Component {
          {isEdit ?
           <form className="main-form-edit">
             <input className="search-edit"
-                    onChange={e => this.handleChange(e) }>
+                    onChange={ e => this.handleChange(e) }
+                    placeholder={item.text}>
             </input>
             <button
               className="search-button-edit"
@@ -49,7 +50,7 @@ class BookmarkItem extends Component {
           </form>
         :
           <div className="list-item">
-            <li className="list-item-li" key={item.id}><a href={"http://"+item.text}>{item.text}</a></li>
+            <li className="list-item-li" key={item.id}><a href={`http://${item.text}`}>{item.text}</a></li>
             <button
               onClick={() => {this.props.removeItem(index)}}
               className="remove-button">x
