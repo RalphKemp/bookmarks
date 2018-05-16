@@ -73,7 +73,7 @@ body {
   outline: none !important;
   border: none;
   color: white;
-  padding: 15px 14px;
+  padding: 15px 13px;
   border-radius: 15px;
   background: #8585b5;
   opacity: 0.8; }
@@ -104,7 +104,7 @@ body {
   border: none;
   color: white;
   padding: 15px 14px;
-  margin-right: 6px;
+  margin-right: 5px;
   border-radius: 15px;
   background: #f79c60;
   opacity: 0.8; }
