@@ -38,14 +38,10 @@ class BookmarkItem extends Component {
                     onChange={ e => this.handleChange(e) }
                     placeholder={item.text}>
             </input>
-
-
             <button
               className="remove-button-edit">
               <i className="fa fa-arrow-left"></i>
             </button>
-
-
             <button
               className="search-button-edit"
               onClick={(e) => {
