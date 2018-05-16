@@ -47,8 +47,10 @@ class BookmarkList extends Component {
 
   handleEdit(e, id, index, newText) {
     e.preventDefault();
-    if (!this.state.text.length) {
+    if (newText === "") {
       return swal('Please enter an address.');
+    } else if (!isValidDomain(newText)) {
+      return swal('Please enter a valid address.');
     }
     const itemToEdit = find(this.state.items, (item) => item.id === id);
     this.state.items.splice(index, 1);
