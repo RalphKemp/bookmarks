@@ -7,7 +7,7 @@ import BookmarkItem from './bookmark_item';
 class BookmarkList extends Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], text: '', valid: true};
+    this.state = { items: [], text: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -15,108 +15,102 @@ class BookmarkList extends Component {
   }
 
   componentWillMount() {
-    const items = localStorage.items;
-
-    if(items) {
+    if (localStorage.items) {
       this.setState({
-        items: JSON.parse(items),
-        text: ''
+        items: JSON.parse(localStorage.items),
+        text: '',
       });
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(JSON.stringify(prevState.items) !== JSON.stringify(this.state.items)) {
+    if (JSON.stringify(prevState.items) !== JSON.stringify(this.state.items)) {
       localStorage.items = JSON.stringify(this.state.items);
     }
   }
 
-  handleChange({target: {value}}) {
+  handleChange({ target: { value } }) {
     this.setState({
       text: value,
-      valid: isValidDomain(value)
     });
   }
 
   removeItem(index) {
-    const newItems = this.state.items.filter((item, itemIndex) => {
-      return itemIndex !== index;
-    })
-    this.setState({ items: newItems })
+    const newItems = this.state.items.filter((item, itemIndex) => itemIndex !== index);
+    this.setState({ items: newItems });
   }
 
   handleEdit(e, id, index, newText) {
     e.preventDefault();
-    if (newText === "") {
+    if (newText === '') {
       return swal('Please enter an address.');
     } else if (!isValidDomain(newText)) {
       return swal('Please enter a valid address.');
     }
-    const itemToEdit = find(this.state.items, (item) => item.id === id);
+    const itemToEdit = find(this.state.items, item => item.id === id);
     this.state.items.splice(index, 1);
     const editedItem = {
       ...itemToEdit,
-      text: newText
-    }
-    this.setState({
+      text: newText,
+    };
+    return this.setState({
       items: [
         ...this.state.items,
-        editedItem
-      ]
-    })
+        editedItem,
+      ],
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-
     if (!this.state.text.length) {
       return swal('Please enter an address.');
     }
-    if (!this.state.valid) {
+
+    if (!isValidDomain(this.state.text)) {
       return swal('Please enter a valid address.');
     }
-    const newItem = {
-      text: this.state.text,
-      id: Date.now()
-    };
 
-    this.setState(prevState => ({
-      items: prevState.items.concat(newItem),
-      text: ''
-    }));
+    return this.setState({
+      items: [
+        ...this.state.items,
+        {
+          text: this.state.text,
+          id: Date.now(),
+        },
+      ],
+      text: '',
+    });
   }
 
   render() {
     return (
       <div className="bookmark-list-main-container">
         <div className="header-div">
-        <div className="logo">
-          <p>Bookmark Buddy</p>
-        </div>
+          <div className="logo">
+            <p>Bookmark Buddy</p>
+          </div>
           <form onSubmit={this.handleSubmit} className="main-form">
             <input
               placeholder="Enter bookmark URL"
               onChange={this.handleChange}
               value={this.state.text}
-              className="search" >
-            </input>
+              className="search"
+            />
             <button type="submit" className="search-button">+</button>
           </form>
         </div>
         <div className="list-div">
           <ul key={Date.now()} className="bookmark-items">
-          {
-            map(this.state.items, (item, index) => {
-              return  (
-                <BookmarkItem
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  removeItem={this.removeItem}
-                  editItem={this.handleEdit}
-                />
-              )
-            })
+            {
+            map(this.state.items, (item, index) => (
+              <BookmarkItem
+                item={item}
+                index={index}
+                removeItem={this.removeItem}
+                editItem={this.handleEdit}
+              />
+              ))
           }
           </ul>
         </div>
@@ -124,5 +118,6 @@ class BookmarkList extends Component {
     );
   }
 }
+
 
 export default BookmarkList;
