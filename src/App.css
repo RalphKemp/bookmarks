@@ -73,7 +73,7 @@ body {
   outline: none !important;
   border: none;
   color: white;
-  padding: 15px 15px;
+  padding: 15px 13px;
   border-radius: 15px;
   background: #8585b5;
   opacity: 0.8; }
@@ -94,6 +94,21 @@ body {
   background: #f75858;
   opacity: 0.8; }
   .remove-button:hover {
+    opacity: 1;
+    border: none;
+    text-decoration: none;
+    cursor: pointer; }
+
+.remove-button-edit {
+  outline: none;
+  border: none;
+  color: white;
+  padding: 15px 14px;
+  margin-right: 5px;
+  border-radius: 15px;
+  background: #f79c60;
+  opacity: 0.8; }
+  .remove-button-edit:hover {
     opacity: 1;
     border: none;
     text-decoration: none;
@@ -174,5 +189,5 @@ body {
   .header-div, .list-div {
     width: 400px; }
   .logo {
-    font-size: 35px;
+    font-size: 38px;
     transition: background 0.3s ease; } }
