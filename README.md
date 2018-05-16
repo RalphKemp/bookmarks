@@ -11,8 +11,8 @@ In terms of design I wanted something very minimal but nice to look at - having 
 Improvements that could be made: 
 
 - Once edited, the item jumps to the top of the list. 
-- the bookmark validation is not great - the package I'e used doesn't seem fully work - however I tried with regex and had problems with that too. Will fix. 
-- I am using flex reverse column, instead of reversing the the items array when mapping to listitems. For this simple app I believe it's not too bad, but could cause issues in larger applications. 
+- the bookmark validation is not great - the package I've used doesn't seem fully work - however I tried with regex and had problems with that too. Will fix. 
+- I am using flex reverse column, instead of reversing the items array when mapping to listitems. For this simple app I believe it's not too bad, but could cause issues in larger applications. 
 - when clicking out of edit, the html document reloads. So the button works, but in a rather strange manner. 
 
 
