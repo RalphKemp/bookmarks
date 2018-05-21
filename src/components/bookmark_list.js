@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { map, find } from 'lodash';
 import swal from 'sweetalert';
-import isValidDomain from 'is-valid-domain';
 import BookmarkItem from './bookmark_item';
 
 class BookmarkList extends Component {
@@ -40,7 +39,12 @@ class BookmarkList extends Component {
     this.setState({ items: newItems });
   }
 
+
   handleEdit(e, id, index, newText) {
+    function isValidDomain(v) {
+      return (/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/.test(v));
+    }
+
     e.preventDefault();
     if (newText === '') {
       return swal('Please enter an address.');
@@ -62,6 +66,10 @@ class BookmarkList extends Component {
   }
 
   handleSubmit(e) {
+    function isValidDomain(v) {
+      return (/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/.test(v));
+    }
+
     e.preventDefault();
     if (!this.state.text.length) {
       return swal('Please enter an address.');
