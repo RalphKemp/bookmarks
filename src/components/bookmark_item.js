@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
 import swal from 'sweetalert';
-import isValidDomain from 'is-valid-domain';
 
 class BookmarkItem extends Component {
   constructor(props) {
