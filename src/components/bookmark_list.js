@@ -42,8 +42,7 @@ class BookmarkList extends Component {
 
   handleEdit(e, id, index, newText) {
     function isValidDomain(v) {
-      var re = (/^(?!:\/\/)([a-zA-Z0-9-]+\.){0,5}[a-zA-Z0-9-][a-zA-Z0-9-]+\.[a-zA-Z]{2,64}?$/gi);
-      return re.test(v);
+      return (/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/.test(v));
     }
 
     e.preventDefault();
@@ -68,8 +67,7 @@ class BookmarkList extends Component {
 
   handleSubmit(e) {
     function isValidDomain(v) {
-      var re = (/^(?!:\/\/)([a-zA-Z0-9-]+\.){0,5}[a-zA-Z0-9-][a-zA-Z0-9-]+\.[a-zA-Z]{2,64}?$/gi);
-      return re.test(v);
+      return (/[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+/.test(v));
     }
 
     e.preventDefault();
